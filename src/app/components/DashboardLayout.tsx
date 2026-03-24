@@ -5,7 +5,7 @@ import {
   Bell, Search, ChevronDown, LogOut, X, Menu, ChevronRight,
 } from 'lucide-react';
 import { C, shadow, radius } from './theme';
-import logoImg from 'figma:asset/d81b8c08f2d9126add4ceb501f1a676b2e6d690c.png';
+const logoImg = "https://placehold.co/400x100/154d30/white?text=School+Logo";
 
 export interface NavItem {
   icon: React.ElementType;
