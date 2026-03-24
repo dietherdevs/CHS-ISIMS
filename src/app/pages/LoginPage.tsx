@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import { Eye, EyeOff, ShieldCheck, BookOpen, User, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { C, shadow, radius } from '../components/theme';
-import logoImg from 'figma:asset/d81b8c08f2d9126add4ceb501f1a676b2e6d690c.png';
+const logoImg = "https://placehold.co/400x100/154d30/white?text=School+Logo";
 
 type Role = 'admin' | 'teacher' | 'student';
 
