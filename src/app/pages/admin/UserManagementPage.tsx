@@ -62,39 +62,41 @@ export default function UserManagementPage() {
       </div>
 
       {/* Filters */}
-      <div style={{ background: C.white, borderRadius: radius.lg, padding: '20px 24px', boxShadow: shadow.card, border: `1px solid ${C.border}`, marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <div style={{ display: 'flex', gap: '8px' }}>
-          {(['All', 'Student', 'Teacher', 'Admin'] as const).map(f => (
-            <button
-              key={f}
-              onClick={() => setFilter(f)}
-              style={{
-                padding: '7px 16px', borderRadius: radius.full,
-                border: `1.5px solid ${filter === f ? C.forestGreen : C.lightGray}`,
-                background: filter === f ? C.forestGreen : 'white',
-                color: filter === f ? 'white' : C.medGray,
-                cursor: 'pointer', fontSize: '13px', fontWeight: filter === f ? '600' : '400',
-                transition: 'all 0.18s',
-              }}
-            >
-              {f} <span style={{ opacity: 0.7, fontSize: '11px' }}>({counts[f]})</span>
-            </button>
-          ))}
-        </div>
-        <div style={{ position: 'relative' }}>
-          <Search size={14} style={{ position: 'absolute', left: '11px', top: '50%', transform: 'translateY(-50%)', color: C.medGray }} />
-          <input
-            value={search} onChange={e => setSearch(e.target.value)}
-            placeholder="Search users…"
-            style={{ paddingLeft: '32px', paddingRight: '14px', paddingTop: '8px', paddingBottom: '8px', border: `1.5px solid ${C.lightGray}`, borderRadius: radius.md, fontSize: '13px', outline: 'none', width: '220px', transition: 'border-color 0.2s' }}
-            onFocus={e => (e.target.style.borderColor = C.emerald)}
-            onBlur={e  => (e.target.style.borderColor = C.lightGray)}
-          />
+      <div style={{ background: C.white, borderRadius: radius.lg, padding: '20px 24px', boxShadow: shadow.card, border: `1px solid ${C.border}`, marginBottom: '20px' }}>
+        <div className="user-filter-bar">
+          <div className="user-filter-buttons">
+            {(['All', 'Student', 'Teacher', 'Admin'] as const).map(f => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                style={{
+                  padding: '7px 16px', borderRadius: radius.full,
+                  border: `1.5px solid ${filter === f ? C.forestGreen : C.lightGray}`,
+                  background: filter === f ? C.forestGreen : 'white',
+                  color: filter === f ? 'white' : C.medGray,
+                  cursor: 'pointer', fontSize: '13px', fontWeight: filter === f ? '600' : '400',
+                  transition: 'all 0.18s',
+                }}
+              >
+                {f} <span style={{ opacity: 0.7, fontSize: '11px' }}>({counts[f]})</span>
+              </button>
+            ))}
+          </div>
+          <div style={{ position: 'relative' }}>
+            <Search size={14} style={{ position: 'absolute', left: '11px', top: '50%', transform: 'translateY(-50%)', color: C.medGray }} />
+            <input
+              value={search} onChange={e => setSearch(e.target.value)}
+              placeholder="Search users…"
+              style={{ paddingLeft: '32px', paddingRight: '14px', paddingTop: '8px', paddingBottom: '8px', border: `1.5px solid ${C.lightGray}`, borderRadius: radius.md, fontSize: '13px', outline: 'none', width: '220px', transition: 'border-color 0.2s' }}
+              onFocus={e => (e.target.style.borderColor = C.emerald)}
+              onBlur={e  => (e.target.style.borderColor = C.lightGray)}
+            />
+          </div>
         </div>
       </div>
 
       {/* Table */}
-      <div style={{ background: C.white, borderRadius: radius.lg, boxShadow: shadow.card, border: `1px solid ${C.border}`, overflow: 'hidden' }}>
+      <div className="table-responsive" style={{ background: C.white, borderRadius: radius.lg, boxShadow: shadow.card, border: `1px solid ${C.border}`, overflow: 'hidden' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse' }}>
           <thead>
             <tr style={{ background: C.offWhite, borderBottom: `2px solid ${C.border}` }}>

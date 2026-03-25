@@ -422,7 +422,7 @@ export function DashboardLayout({
             </button>
 
             {/* Search */}
-            <div style={{ position: 'relative', flex: 1, maxWidth: '320px' }}>
+            <div className="header-search" style={{ position: 'relative', flex: 1, maxWidth: '320px' }}>
               <Search size={15} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: C.medGray, pointerEvents: 'none' }} />
               <input
                 value={searchVal}

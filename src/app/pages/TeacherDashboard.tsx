@@ -81,43 +81,44 @@ export default function TeacherDashboard() {
       <div style={{
         background: `linear-gradient(135deg, ${C.forestGreen} 0%, ${C.emerald} 100%)`,
         borderRadius: radius.lg, padding: '28px 32px', marginBottom: '24px',
-        display: 'flex', justifyContent: 'space-between', alignItems: 'center',
         boxShadow: `0px 8px 24px rgba(27,94,59,0.25)`, position: 'relative', overflow: 'hidden',
       }}>
         {/* Background decoration */}
         <div style={{ position: 'absolute', right: '-40px', top: '-40px', width: '200px', height: '200px', border: '2px solid rgba(255,255,255,0.1)', borderRadius: '50%' }} />
         <div style={{ position: 'absolute', right: '40px', top: '-60px', width: '160px', height: '160px', border: '2px solid rgba(255,255,255,0.07)', borderRadius: '50%' }} />
 
-        <div>
-          <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', marginBottom: '6px' }}>{dateStr} · {timeStr}</p>
-          <h1 style={{ color: 'white', fontSize: '24px', fontWeight: '700', margin: '0 0 8px' }}>
-            Welcome back, Professor Wilson 👋
-          </h1>
-          <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', margin: 0 }}>
-            You have <strong style={{ color: 'white' }}>3 classes</strong> today and <strong style={{ color: 'white' }}>12 assignments</strong> pending review.
-          </p>
-        </div>
+        <div className="teacher-welcome-banner">
+          <div>
+            <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '13px', marginBottom: '6px' }}>{dateStr} · {timeStr}</p>
+            <h1 style={{ color: 'white', fontSize: '24px', fontWeight: '700', margin: '0 0 8px' }}>
+              Welcome back, Professor Wilson 👋
+            </h1>
+            <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '14px', margin: 0 }}>
+              You have <strong style={{ color: 'white' }}>3 classes</strong> today and <strong style={{ color: 'white' }}>12 assignments</strong> pending review.
+            </p>
+          </div>
 
-        {/* Quick Stats */}
-        <div style={{ display: 'flex', gap: '16px', flexShrink: 0 }}>
-          {[
-            { label: "Today's Classes", value: '3', icon: BookOpen },
-            { label: 'Pending Grades', value: '12', icon: ClipboardList },
-            { label: 'Avg Attendance', value: '87%', icon: TrendingUp },
-          ].map(stat => {
-            const Icon = stat.icon;
-            return (
-              <div key={stat.label} style={{
-                background: 'rgba(255,255,255,0.15)', borderRadius: radius.md,
-                padding: '14px 18px', textAlign: 'center', backdropFilter: 'blur(8px)',
-                border: '1px solid rgba(255,255,255,0.2)',
-              }}>
-                <Icon size={18} color="rgba(255,255,255,0.8)" style={{ margin: '0 auto 6px' }} />
-                <p style={{ color: 'white', fontSize: '22px', fontWeight: '700', lineHeight: '1' }}>{stat.value}</p>
-                <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '11px', marginTop: '4px' }}>{stat.label}</p>
-              </div>
-            );
-          })}
+          {/* Quick Stats */}
+          <div className="teacher-banner-stats">
+            {[
+              { label: "Today's Classes", value: '3', icon: BookOpen },
+              { label: 'Pending Grades', value: '12', icon: ClipboardList },
+              { label: 'Avg Attendance', value: '87%', icon: TrendingUp },
+            ].map(stat => {
+              const Icon = stat.icon;
+              return (
+                <div key={stat.label} style={{
+                  background: 'rgba(255,255,255,0.15)', borderRadius: radius.md,
+                  padding: '14px 18px', textAlign: 'center', backdropFilter: 'blur(8px)',
+                  border: '1px solid rgba(255,255,255,0.2)',
+                }}>
+                  <Icon size={18} color="rgba(255,255,255,0.8)" style={{ margin: '0 auto 6px' }} />
+                  <p style={{ color: 'white', fontSize: '22px', fontWeight: '700', lineHeight: '1' }}>{stat.value}</p>
+                  <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '11px', marginTop: '4px' }}>{stat.label}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
 
@@ -126,7 +127,7 @@ export default function TeacherDashboard() {
         <h2 style={{ fontSize: '16px', fontWeight: '600', color: C.darkSlate, marginBottom: '14px' }}>
           Today's Classes
         </h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px' }}>
+        <div className="teacher-classes-grid">
           {todaysClasses.map(cls => (
             <div key={cls.id} style={{
               background: C.white, borderRadius: radius.lg, padding: '20px',
@@ -164,7 +165,7 @@ export default function TeacherDashboard() {
       </div>
 
       {/* Bottom Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 280px', gap: '20px' }}>
+      <div className="teacher-bottom-grid">
 
         {/* Attendance BarChart */}
         <div style={{ background: C.white, borderRadius: radius.lg, padding: '24px', boxShadow: shadow.card, border: `1px solid ${C.border}` }}>

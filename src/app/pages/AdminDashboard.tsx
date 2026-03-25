@@ -115,7 +115,7 @@ export default function AdminDashboard() {
       notificationCount={3}
     >
       {/* Page Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '28px' }}>
+      <div className="page-header">
         <div>
           <h1 style={{ fontSize: '22px', fontWeight: '700', color: C.darkSlate, margin: 0 }}>Admin Dashboard</h1>
           <p style={{ fontSize: '14px', color: C.medGray, marginTop: '4px' }}>
@@ -123,6 +123,7 @@ export default function AdminDashboard() {
           </p>
         </div>
         <button
+          className="page-header-action"
           onClick={() => setShowRegisterModal(true)}
           style={{
             display: 'flex', alignItems: 'center', gap: '8px',
@@ -140,12 +141,12 @@ export default function AdminDashboard() {
       </div>
 
       {/* Metrics Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '20px', marginBottom: '24px' }}>
+      <div className="metrics-grid">
         {metrics.map(m => <MetricCard key={m.label} {...m} />)}
       </div>
 
       {/* Main Content Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 340px', gap: '20px', marginBottom: '20px' }}>
+      <div className="dashboard-content-grid">
 
         {/* Enrollment Chart */}
         <div style={{ background: C.white, borderRadius: radius.lg, padding: '24px', boxShadow: shadow.card, border: `1px solid ${C.border}` }}>
@@ -218,7 +219,7 @@ export default function AdminDashboard() {
       </div>
 
       {/* Recent Users Table */}
-      <div style={{ background: C.white, borderRadius: radius.lg, padding: '24px', boxShadow: shadow.card, border: `1px solid ${C.border}` }}>
+      <div className="table-responsive" style={{ background: C.white, borderRadius: radius.lg, padding: '24px', boxShadow: shadow.card, border: `1px solid ${C.border}` }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <div>
             <h3 style={{ fontSize: '15px', fontWeight: '600', color: C.darkSlate, margin: 0 }}>Recently Registered Users</h3>
