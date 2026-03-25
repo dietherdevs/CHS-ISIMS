@@ -366,7 +366,7 @@ export function DashboardLayout({
           ref={headerRef}
           style={{
             background: C.white, borderBottom: `1px solid ${C.border}`,
-            padding: '0 20px 0 16px', height: '64px', flexShrink: 0,
+            padding: isMobile ? '0 8px' : '0 20px 0 16px', height: '64px', flexShrink: 0,
             display: 'flex', alignItems: 'center', justifyContent: 'space-between',
             boxShadow: shadow.header, position: 'relative', zIndex: 10,
             gap: '12px',
@@ -422,7 +422,7 @@ export function DashboardLayout({
             </button>
 
             {/* Search */}
-            <div style={{ position: 'relative', flex: 1, maxWidth: '320px' }}>
+            <div style={{ position: 'relative', flex: 1, maxWidth: isMobile ? '100%' : '320px' }}>
               <Search size={15} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: C.medGray, pointerEvents: 'none' }} />
               <input
                 value={searchVal}
@@ -481,7 +481,7 @@ export function DashboardLayout({
                     style={{
                       position: 'absolute', top: '48px', right: 0,
                       background: C.white, borderRadius: radius.lg, boxShadow: shadow.modal,
-                      border: `1px solid ${C.border}`, width: '300px', zIndex: 100,
+                      border: `1px solid ${C.border}`, width: isMobile ? 'calc(100vw - 20px)' : '300px', zIndex: 100,
                       transformOrigin: 'top right',
                     }}
                   >
@@ -558,7 +558,7 @@ export function DashboardLayout({
                     style={{
                       position: 'absolute', top: '52px', right: 0,
                       background: C.white, borderRadius: radius.lg, boxShadow: shadow.modal,
-                      border: `1px solid ${C.border}`, width: '200px', zIndex: 100, padding: '8px',
+                      border: `1px solid ${C.border}`, width: isMobile ? 'calc(100vw - 20px)' : '200px', zIndex: 100, padding: '8px',
                       transformOrigin: 'top right',
                     }}
                   >
@@ -617,7 +617,7 @@ export function DashboardLayout({
               style={{
                 position: 'absolute',
                 inset: 0,
-                padding: '28px',
+                padding: isMobile ? '12px' : '28px',
                 overflowY: 'auto',
                 overflowX: 'hidden',
                 willChange: 'opacity, transform',
