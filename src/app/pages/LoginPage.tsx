@@ -102,10 +102,10 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 24, scale: 0.97 }}
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.45, ease: [0.4, 0, 0.2, 1] }}
+        className="login-card"
         style={{
           background: C.white,
           borderRadius: radius.xxl,
-          padding: '44px 44px 40px',
           width: '100%', maxWidth: '448px',
           boxShadow: '0px 24px 80px rgba(27,94,59,0.14), 0px 4px 16px rgba(0,0,0,0.06)',
           position: 'relative', zIndex: 10,

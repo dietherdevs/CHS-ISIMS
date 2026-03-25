@@ -111,7 +111,7 @@ export default function StudentDashboard() {
       notificationCount={4}
     >
       {/* Welcome Row */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: '20px', marginBottom: '24px', alignItems: 'stretch' }}>
+      <div className="student-welcome-grid">
 
         {/* Welcome Card */}
         <div style={{
@@ -182,7 +182,7 @@ export default function StudentDashboard() {
       </div>
 
       {/* Main Content Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px 280px', gap: '20px' }}>
+      <div className="student-content-grid">
 
         {/* Subjects */}
         <div style={{ background: C.white, borderRadius: radius.lg, padding: '24px', boxShadow: shadow.card, border: `1px solid ${C.border}` }}>
